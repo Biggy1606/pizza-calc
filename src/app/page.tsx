@@ -1,7 +1,12 @@
+import Calculator from "./calculator";
+import { CalcResultsProvider } from "./providers/calc-result-context";
+
 export default function Home() {
   return (
-    <div>
-      <h1>Hello, world!</h1>
-    </div>
+    <>
+      <CalcResultsProvider>
+        <Calculator />
+      </CalcResultsProvider>
+    </>
   );
 }
