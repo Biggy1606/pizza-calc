@@ -53,10 +53,12 @@ const Calculator = () => {
           placeholder='Price (your currency)'
           type='number'
           min={0}
+          step='0.01'
           title='Price for entire pizza'
           name='price'
           className='w-full rounded-md border-2 border-slate-500 px-2 py-1'
         />
+
         <input
           placeholder='Amount of slices (default: 8)'
           type='number'
