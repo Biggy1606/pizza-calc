@@ -1,6 +1,6 @@
 version: "3"
 services:
-  web:
+  wise-slice:
     build: .
     ports:
       - "3030:3000"
