@@ -17,3 +17,8 @@
 ## Level Up
 
 1. Fetching Information on Restaurants and Their Pizzas from Pyszne.pl (or another service)
+
+## Notes
+
+$$P_o = \pi r^2$$
+$$O_o = 2 \pi r$$
