@@ -1,0 +1,6 @@
+services:
+  wise-slice:
+    build: .
+    container_name: wise-slice
+    ports:
+      - 3003:3000
