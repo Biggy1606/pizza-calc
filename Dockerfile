@@ -2,9 +2,9 @@
 FROM node:latest AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN corepack enable pnpm && pnpm i
 COPY . .
-RUN npm run build
+RUN pnpm run build
 
 # Stage 2: Serve
 FROM node:lts-alpine
@@ -13,6 +13,6 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 
-RUN npm install next
+RUN corepack enable pnpm && pnpm i next
 
-CMD ["npm", "start"]
+CMD ["pnpm", "start"]
