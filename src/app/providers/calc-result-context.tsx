@@ -7,6 +7,8 @@ export type CalcResults = {
   slices: number;
   pricePerCmSquare: number;
   pricePerSlice: number;
+  like: boolean;
+  dislike: boolean;
 };
 
 type CalcResultsState = {
@@ -15,7 +17,10 @@ type CalcResultsState = {
 
 type CalcResultsAction =
   | { type: "ADD_RESULT"; payload: CalcResults }
+  | { type: "CLICK_LIKE"; payload: number }
+  | { type: "CLICK_DISLIKE"; payload: number }
   | { type: "REMOVE_RESULT"; payload: number };
+
 
 const initialState: CalcResultsState = {
   results: [],
@@ -32,6 +37,22 @@ const calcResultsReducer = (
       return {
         ...state,
         results: [...state.results, action.payload],
+      };
+    case "CLICK_LIKE": 
+    // Toggle the like state for the result at the specified index
+      return {
+        ...state,
+        results: state.results.map((result, index) =>
+          index === action.payload ? { ...result, like: !result.like } : result
+        ),
+      };
+    case "CLICK_DISLIKE":
+      // Toggle the dislike state for the result at the specified index
+      return {
+        ...state,
+        results: state.results.map((result, index) =>
+          index === action.payload ? { ...result, dislike: !result.dislike } : result
+        ),
       };
     case "REMOVE_RESULT":
       // Remove a result from the results array at the specified index

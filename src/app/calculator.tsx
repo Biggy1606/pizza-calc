@@ -14,6 +14,8 @@ const Calculator = () => {
     const diameter = Number(formData.get("diameter"));
     const price = Number(formData.get("price"));
     const slices = Number(formData.get("slices")) || 8;
+    const like = Boolean(false);
+    const dislike = Boolean(false);
 
     // Calculate the price per square centimeter
     const area = Math.PI * Math.pow(diameter / 2, 2);
@@ -27,11 +29,19 @@ const Calculator = () => {
       slices,
       pricePerCmSquare,
       pricePerSlice,
+      like,
+      dislike
     };
 
     // Dispatch an action to add the new result to the context
     dispatch({ type: "ADD_RESULT", payload: newResult });
   };
+  const ChangeLike = (index: number) => {
+    dispatch({ type: "CLICK_LIKE", payload: index });
+  }
+  const ChangeDisike = (index: number) => {
+    dispatch({ type: "CLICK_DISLIKE", payload: index });
+  }
   const handleRemove = (index: number) => {
     dispatch({ type: "REMOVE_RESULT", payload: index });
   };
@@ -95,6 +105,18 @@ const Calculator = () => {
               >
                 Save
               </button>
+              <div className='flex w-full flex-row items-center justify-center gap-2'>
+                <button
+                  onClick={() => ChangeLike(index)}
+                  className={`rounded-md px-2 py-1 text-white text-3xl${result.like ? ' bg-green-500' : ''}`}>
+                    👍
+                </button>
+                <button
+                  onClick={() => ChangeDisike(index)}
+                  className={`rounded-md px-2 py-1 text-white text-3xl${result.dislike ? ' bg-red-500' : ''}`}>
+                    👎
+                </button>
+              </div>
               <button
                 onClick={() => handleRemove(index)}
                 className='rounded-md bg-red-500 px-2 py-1 text-white'
@@ -104,6 +126,7 @@ const Calculator = () => {
             </div>
           </div>
         ))}
+
       </div>
     </>
   );
