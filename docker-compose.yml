@@ -1,9 +1,17 @@
-version: "3"
 services:
   wise-slice:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "3030:3000"
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+    develop:
+      watch:
+        - path: src
+          action: rebuild
+    environment:
+      - NODE_ENV=production
+    command: pnpm start
+    # volumes:
+    #   - .:/usr/src/app # mounts the current directory as /usr/src/app inside the container
+    #   - /usr/src/app/node_modules # keeps node_modules cached between builds

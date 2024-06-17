@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:latest AS builder
+FROM node:lts-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
 RUN corepack enable pnpm && pnpm i
