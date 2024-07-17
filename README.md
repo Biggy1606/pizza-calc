@@ -22,3 +22,16 @@
 
 $$P_o = \pi r^2$$
 $$O_o = 2 \pi r$$
+
+---
+1. Manualnie podajesz wymiary i cene
+   - Cena / kawałek - przy wyborze dla podziałów od na 4, 8, custom?
+   - Cena / cm^2
+2. Lokalne zapisywanie wyników w  celu porównania z innymi
+   - Dodanie opisu do zapisanego wpisu
+   - Dodanie lokacji dla zapisanego wpisu (pokazywanie obok lokalizacji odległości do lokalu od lokacji z GPS, możliwość sortowania po odległości)
+3. Zarządzanie lokalami (osobna zakładka)
+   - Wyświetlanie jako  podpowiedzi w zapisanych wynikach -> lokal
+4. Wizualna pizza zmieniająca rozmiar zależnie od wpisanego
+5. Wizualna pizza zmieniająca motyw zależnie od podanej ceny
+---
